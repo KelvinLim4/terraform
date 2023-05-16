@@ -1,4 +1,4 @@
-provider "aws"{
+provider "aws" {
     region = "us-east-1"
 
 }
@@ -12,5 +12,3 @@ resource  "aws_instance" "dev" {
         Name = "dev${count.index}"
     }
 }
-
-#para exportar para as credentials para o terraform https://williamalvessantos.medium.com/conectar-terraform-com-a-aws-dc6bd167f6ae

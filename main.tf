@@ -50,3 +50,11 @@ resource "aws_security_group" "acesso-ssh"{
     }
 
 }
+
+resource "aws_s3_bucket" "dev4" {
+  bucket = "rmerceslabs-dev4"
+
+  tags = {
+    Name        = "rmerceslabs-dev4"
+  }
+}

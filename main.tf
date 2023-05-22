@@ -56,24 +56,6 @@ resource  "aws_instance" "dev5" {
     vpc_security_group_ids = [aws_security_group.acesso-ssh.id]
 }
 
-resource "aws_security_group" "acesso-ssh"{
-    name = "acesso-ssh"
-    description = "acesso-ssh"
-    vpc_id = aws_vpc.main.id
-
-    ingress {
-        from_port   = 22
-        to_port     = 22
-        protocol    = "tcp"
-        cidr_blocks = ["179.125.129.14/32"]
-    } 
-
-    tags = {
-        Name = "ssh"
-    }
-
-}
-
 resource "aws_s3_bucket" "dev4" {
   bucket = "rmerceslabs-dev4-kelvinho"
 

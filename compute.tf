@@ -11,7 +11,7 @@ resource  "aws_instance" "dev" {
 }
 
 resource  "aws_instance" "dev4" {
-    ami             = "ami-05fa00d4c63e32376"
+    ami             = var.amis["us-east-1"]
     instance_type   = "t2.micro"
     key_name        = "terraform-aws"
     subnet_id       =  aws_subnet.main.id
@@ -35,7 +35,7 @@ resource  "aws_instance" "dev5" {
 
 resource  "aws_instance" "dev6" {
     provider        =  aws.us-east-2
-    ami             = "ami-08333bccc35d71140"
+    ami             = var.amis["us-east-2"]
     instance_type   = "t2.micro"
     key_name        = "terraform-aws"
     subnet_id       =  aws_subnet.main.id

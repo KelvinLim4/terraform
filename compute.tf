@@ -38,10 +38,22 @@ resource  "aws_instance" "dev6" {
     ami             =  var.amis["us-east-2"]
     instance_type   =  var.instance_type
     key_name        =  var.key_name
-    subnet_id       =  aws_subnet.main.id
+    subnet_id       =  aws_subnet.us-east-2.id
     tags = {
         Name = "dev6"
     }
     vpc_security_group_ids = [aws_security_group.acesso-ssh-us-east-2.id]
     depends_on             = [aws_dynamodb_table.dynamodb-homologacao]
+}
+
+resource  "aws_instance" "dev7" {
+    provider        =  aws.us-east-2
+    ami             =  var.amis["us-east-2"]
+    instance_type   =  var.instance_type
+    key_name        =  var.key_name
+    subnet_id       =  aws_subnet.us-east-2.id
+    tags = {
+        Name = "dev7"
+    }
+    vpc_security_group_ids = [aws_security_group.acesso-ssh-us-east-2.id]
 }
